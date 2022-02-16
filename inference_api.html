@@ -241,7 +241,7 @@
 <li class="toctree-l1"><a class="reference internal" href="use_cases.html">16. Torchserve Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflows.html">17. TorchServe Workflows</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<p class="caption" role="heading"><span class="caption-text">Service APIs:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="grpc_api.html">TorchServe gRPC API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Inference API</a></li>
@@ -250,6 +250,16 @@
 <li class="toctree-l1"><a class="reference internal" href="rest_api.html">TorchServe REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_inference_api.html">Workflow Inference API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_management_api.html">Management API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer APIs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.html">ts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.request_envelope.html">ts.torch_handler.request_envelope package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.html">ts.torch_handler package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.metrics.html">ts.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.model_service.html">ts.model_service package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.protocol.html">ts.protocol package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">serve</a></li>
 </ul>
 
             
@@ -377,6 +387,16 @@ curl http://localhost:8080/predictions/resnet-18 -T kitten_small.jpg
 or:
 
 curl http://localhost:8080/predictions/resnet-18 -F <span class="s2">&quot;data=@kitten_small.jpg&quot;</span>
+</pre></div>
+</div>
+<p>To get predictions from the loaded model which expects multiple inputs</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl http://localhost:8080/predictions/squeezenet1_1 -F <span class="s1">&#39;data=@docs/images/dogs-before.jpg&#39;</span> -F <span class="s1">&#39;data=@docs/images/kitten_small.jpg&#39;</span>
+
+or:
+
+import requests
+
+<span class="nv">res</span> <span class="o">=</span> requests.post<span class="o">(</span><span class="s2">&quot;http://localhost:8080/predictions/squeezenet1_1&quot;</span>, <span class="nv">files</span><span class="o">={</span><span class="s1">&#39;data&#39;</span>: open<span class="o">(</span><span class="s1">&#39;docs/images/dogs-before.jpg&#39;</span>, <span class="s1">&#39;rb&#39;</span><span class="o">)</span>, <span class="s1">&#39;data&#39;</span>: open<span class="o">(</span><span class="s1">&#39;docs/images/kitten_small.jpg&#39;</span>, <span class="s1">&#39;rb&#39;</span><span class="o">)})</span>
 </pre></div>
 </div>
 <p>To get predictions from a specific version of each loaded model, make a REST call to <code class="docutils literal notranslate"><span class="pre">/predictions/{model_name}/{version}</span></code>:</p>
