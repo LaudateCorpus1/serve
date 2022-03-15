@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TorchServe REST API &mdash; PyTorch/Serve master documentation</title>
+  <title>Getting started &mdash; PyTorch/Serve master documentation</title>
   
 
   
@@ -35,8 +35,6 @@
   <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Workflow Inference API" href="workflow_inference_api.html" />
-    <link rel="prev" title="Metrics API" href="metrics_api.html" />
   <!-- Google Analytics -->
   
   <!-- End Google Analytics -->
@@ -246,12 +244,12 @@
 <li class="toctree-l1"><a class="reference internal" href="workflows.html">17. TorchServe Workflows</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Service APIs:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="grpc_api.html">TorchServe gRPC API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inference_api.html">Inference API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="management_api.html">Management API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metrics_api.html">Metrics API</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">TorchServe REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest_api.html">TorchServe REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_inference_api.html">Workflow Inference API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_management_api.html">Management API</a></li>
 </ul>
@@ -304,15 +302,13 @@
       </li>
 
         
-          <li><a href="apis.html">&lt;no title&gt;</a> &gt;</li>
-        
-      <li>TorchServe REST API</li>
+      <li>Getting started</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="_sources/rest_api.md.txt" rel="nofollow"><img src="_static/images/view-page-source-icon.svg"></a>
+            <a href="_sources/getting_started.md.txt" rel="nofollow"><img src="_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -338,20 +334,180 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="torchserve-rest-api">
-<h1>TorchServe REST API<a class="headerlink" href="#torchserve-rest-api" title="Permalink to this headline">¶</a></h1>
-<p>TorchServe uses a RESTful API for both inference and management calls. The API is compliant with the <a class="reference external" href="https://swagger.io/specification/">OpenAPI specification 3.0</a>.
-You can easily generate client side code for Java, Scala, C#, or Javascript by using <a class="reference external" href="https://swagger.io/swagger-codegen/">swagger codegen</a>.</p>
-<p>When TorchServe starts, it starts two web services:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="inference_api.html"><span class="doc">Inference API</span></a></p></li>
-<li><p><a class="reference internal" href="management_api.html"><span class="doc">Management API</span></a></p></li>
-<li><p><a class="reference internal" href="metrics_api.html"><span class="doc">Metrics API</span></a></p></li>
-<li><p><a class="reference internal" href="workflow_inference_api.html"><span class="doc">Workflow Inference API</span></a></p></li>
-<li><p><a class="reference internal" href="workflow_management_api.html"><span class="doc">Workflow Management API</span></a></p></li>
+  <section id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<section id="install-torchserve-and-torch-model-archiver">
+<h2>Install TorchServe and torch-model-archiver<a class="headerlink" href="#install-torchserve-and-torch-model-archiver" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Install dependencies</p>
+<p>Note: For Conda, Python 3.8 is required to run Torchserve.</p>
+</li>
+</ol>
+<section id="for-debian-based-systems-macos">
+<h3>For Debian Based Systems/ MacOS<a class="headerlink" href="#for-debian-based-systems-macos" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>For CPU</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./ts_scripts/install_dependencies.py
+</pre></div>
+</div>
+</li>
+<li><p>For GPU with Cuda 10.2. Options are <code class="docutils literal notranslate"><span class="pre">cu92</span></code>, <code class="docutils literal notranslate"><span class="pre">cu101</span></code>, <code class="docutils literal notranslate"><span class="pre">cu102</span></code>, <code class="docutils literal notranslate"><span class="pre">cu111</span></code>, <code class="docutils literal notranslate"><span class="pre">cu113</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./ts_scripts/install_dependencies.py --cuda<span class="o">=</span>cu102
+</pre></div>
+</div>
+</li>
 </ul>
-<p>By default, TorchServe listens on port 8080 for the Inference API and 8081 for the Management API.
-Both APIs are accessible only from localhost by default. To enable access from a remote host, see <a class="reference internal" href="configuration.html"><span class="doc">TorchServe Configuration</span></a>.</p>
+<p>Note: PyTorch 1.9+ will not support cu92 and cu101. So TorchServe only supports cu92 and cu101 up to PyTorch 1.8.1.</p>
+</section>
+<section id="for-windows">
+<h3>For Windows<a class="headerlink" href="#for-windows" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the documentation <a class="reference external" href="docs/torchserve_on_win_native">here</a>.</p>
+</section>
+<li><p>Install torchserve, torch-model-archiver and torch-workflow-archiver</p>
+<p>For <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install">Conda</a><br />Note: Conda packages are not supported for Windows. Refer to the documentation <a class="reference external" href="docs/torchserve_on_win_native">here</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">torchserve</span> <span class="n">torch</span><span class="o">-</span><span class="n">model</span><span class="o">-</span><span class="n">archiver</span> <span class="n">torch</span><span class="o">-</span><span class="n">workflow</span><span class="o">-</span><span class="n">archiver</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span>
+</pre></div>
+</div>
+<p>For Pip</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">torchserve</span> <span class="n">torch</span><span class="o">-</span><span class="n">model</span><span class="o">-</span><span class="n">archiver</span> <span class="n">torch</span><span class="o">-</span><span class="n">workflow</span><span class="o">-</span><span class="n">archiver</span>
+</pre></div>
+</div>
+</li>
+</section>
+<p>Now you are ready to <a class="reference external" href="#serve-a-model">package and serve models with TorchServe</a>.</p>
+<section id="serve-a-model">
+<h2>Serve a model<a class="headerlink" href="#serve-a-model" title="Permalink to this headline">¶</a></h2>
+<p>This section shows a simple example of serving a model with TorchServe. To complete this example, you must have already <a class="reference external" href="#install-torchserve-and-torch-model-archiver">installed TorchServe and the model archiver</a>.</p>
+<p>To run this example, clone the TorchServe repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/pytorch/serve.git
+</pre></div>
+</div>
+<p>Then run the following steps from the parent directory of the root of the repository.
+For example, if you cloned the repository into <code class="docutils literal notranslate"><span class="pre">/home/my_path/serve</span></code>, run the steps from <code class="docutils literal notranslate"><span class="pre">/home/my_path</span></code>.</p>
+<section id="store-a-model">
+<h3>Store a Model<a class="headerlink" href="#store-a-model" title="Permalink to this headline">¶</a></h3>
+<p>To serve a model with TorchServe, first archive the model as a MAR file. You can use the model archiver to package a model.
+You can also create model stores to store your archived models.</p>
+<ol>
+<li><p>Create a directory to store your models.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir model_store
+</pre></div>
+</div>
+</li>
+<li><p>Download a trained model.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://download.pytorch.org/models/densenet161-8d451a50.pth
+</pre></div>
+</div>
+</li>
+<li><p>Archive the model by using the model archiver. The <code class="docutils literal notranslate"><span class="pre">extra-files</span></code> param uses a file from the <code class="docutils literal notranslate"><span class="pre">TorchServe</span></code> repo, so update the path if necessary.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>torch-model-archiver --model-name densenet161 --version <span class="m">1</span>.0 --model-file ./serve/examples/image_classifier/densenet_161/model.py --serialized-file densenet161-8d451a50.pth --export-path model_store --extra-files ./serve/examples/image_classifier/index_to_name.json --handler image_classifier
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For more information about the model archiver, see <a class="reference external" href="model-archiver/README">Torch Model archiver for TorchServe</a></p>
+</section>
+<section id="start-torchserve-to-serve-the-model">
+<h3>Start TorchServe to serve the model<a class="headerlink" href="#start-torchserve-to-serve-the-model" title="Permalink to this headline">¶</a></h3>
+<p>After you archive and store the model, use the <code class="docutils literal notranslate"><span class="pre">torchserve</span></code> command to serve the model.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>torchserve --start --ncs --model-store model_store --models densenet161.mar
+</pre></div>
+</div>
+<p>After you execute the <code class="docutils literal notranslate"><span class="pre">torchserve</span></code> command above, TorchServe runs on your host, listening for inference requests.</p>
+<p><strong>Note</strong>: If you specify model(s) when you run TorchServe, it automatically scales backend workers to the number equal to available vCPUs (if you run on a CPU instance) or to the number of available GPUs (if you run on a GPU instance). In case of powerful hosts with a lot of compute resources (vCPUs or GPUs), this start up and autoscaling process might take considerable time. If you want to minimize TorchServe start up time you should avoid registering and scaling the model during start up time and move that to a later point by using corresponding <a class="reference external" href="docs/management_api.md#register-a-model">Management API</a>, which allows finer grain control of the resources that are allocated for any particular model).</p>
+</section>
+<section id="get-predictions-from-a-model">
+<h3>Get predictions from a model<a class="headerlink" href="#get-predictions-from-a-model" title="Permalink to this headline">¶</a></h3>
+<p>To test the model server, send a request to the server’s <code class="docutils literal notranslate"><span class="pre">predictions</span></code> API. TorchServe supports all <a class="reference external" href="docs/inference_api">inference</a> and <a class="reference external" href="docs/management_api">management</a> api’s through both <a class="reference external" href="docs/grpc_api">gRPC</a> and <a class="reference external" href="docs/rest_api">HTTP/REST</a>.</p>
+<section id="using-grpc-apis-through-python-client">
+<h4>Using GRPC APIs through python client<a class="headerlink" href="#using-grpc-apis-through-python-client" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Install grpc python dependencies :</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -U grpcio protobuf grpcio-tools
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Generate inference client using proto files</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m grpc_tools.protoc --proto_path<span class="o">=</span>frontend/server/src/main/resources/proto/ --python_out<span class="o">=</span>ts_scripts --grpc_python_out<span class="o">=</span>ts_scripts frontend/server/src/main/resources/proto/inference.proto frontend/server/src/main/resources/proto/management.proto
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run inference using a sample client <a class="reference external" href="ts_scripts/torchserve_grpc_client.py">gRPC python client</a></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ts_scripts/torchserve_grpc_client.py infer densenet161 examples/image_classifier/kitten.jpg
+</pre></div>
+</div>
+</section>
+<section id="using-rest-apis">
+<h4>Using REST APIs<a class="headerlink" href="#using-rest-apis" title="Permalink to this headline">¶</a></h4>
+<p>As an example we’ll download the below cute kitten with</p>
+<p><img alt="kitten" src="_images/kitten_small.jpg" /></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -O https://raw.githubusercontent.com/pytorch/serve/master/docs/images/kitten_small.jpg
+</pre></div>
+</div>
+<p>And then call the prediction endpoint</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl http://127.0.0.1:8080/predictions/densenet161 -T kitten_small.jpg
+</pre></div>
+</div>
+<p>Which will return the following JSON object</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;tiger_cat&quot;</span><span class="p">:</span> <span class="mf">0.46933549642562866</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;tabby&quot;</span><span class="p">:</span> <span class="mf">0.4633878469467163</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;Egyptian_cat&quot;</span><span class="p">:</span> <span class="mf">0.06456148624420166</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;lynx&quot;</span><span class="p">:</span> <span class="mf">0.0012828214094042778</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;plastic_bag&quot;</span><span class="p">:</span> <span class="mf">0.00023323034110944718</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>All interactions with the endpoint will be logged in the <code class="docutils literal notranslate"><span class="pre">logs/</span></code> directory, so make sure to check it out!</p>
+<p>Now you’ve seen how easy it can be to serve a deep learning model with TorchServe! <a class="reference external" href="docs/server">Would you like to know more?</a></p>
+</section>
+</section>
+<section id="stop-torchserve">
+<h3>Stop TorchServe<a class="headerlink" href="#stop-torchserve" title="Permalink to this headline">¶</a></h3>
+<p>To stop the currently running TorchServe instance, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>torchserve --stop
+</pre></div>
+</div>
+</section>
+<section id="inspect-the-logs">
+<h3>Inspect the logs<a class="headerlink" href="#inspect-the-logs" title="Permalink to this headline">¶</a></h3>
+<p>All the logs you’ve seen as output to stdout related to model registration, management, inference are recorded in the <code class="docutils literal notranslate"><span class="pre">/logs</span></code> folder.</p>
+<p>High level performance data like Throughput or Percentile Precision can be generated with <a class="reference external" href="benchmark/README">Benchmark</a> and visualized in a report.</p>
+</section>
+<section id="install-torchserve-for-development">
+<h3>Install TorchServe for development<a class="headerlink" href="#install-torchserve-for-development" title="Permalink to this headline">¶</a></h3>
+<p>If you plan to develop with TorchServe and change some source code, you must install it from source code.</p>
+<p>Ensure that you have <code class="docutils literal notranslate"><span class="pre">python3</span></code> installed, and the user has access to the site-packages or <code class="docutils literal notranslate"><span class="pre">~/.local/bin</span></code> is added to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable.</p>
+<p>Run the following script from the top of the source directory.</p>
+<p>NOTE: This script uninstalls existing <code class="docutils literal notranslate"><span class="pre">torchserve</span></code>, <code class="docutils literal notranslate"><span class="pre">torch-model-archiver</span></code> and <code class="docutils literal notranslate"><span class="pre">torch-workflow-archiver</span></code> installations</p>
+<section id="id1">
+<h4>For Debian Based Systems/ MacOS<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">./</span><span class="n">ts_scripts</span><span class="o">/</span><span class="n">install_dependencies</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">environment</span><span class="o">=</span><span class="n">dev</span>
+<span class="n">python</span> <span class="o">./</span><span class="n">ts_scripts</span><span class="o">/</span><span class="n">install_from_src</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">--cuda</span></code> flag with <code class="docutils literal notranslate"><span class="pre">install_dependencies.py</span></code> for installing cuda version specific dependencies. Possible values are <code class="docutils literal notranslate"><span class="pre">cu111</span></code>, <code class="docutils literal notranslate"><span class="pre">cu102</span></code>, <code class="docutils literal notranslate"><span class="pre">cu101</span></code>, <code class="docutils literal notranslate"><span class="pre">cu92</span></code></p>
+</section>
+<section id="id2">
+<h4>For Windows<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Refer to the documentation <a class="reference external" href="docs/torchserve_on_win_native">here</a>.</p>
+<p>For information about the model archiver, see <a class="reference external" href="model-archiver/README">detailed documentation</a>.</p>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -359,15 +515,6 @@ Both APIs are accessible only from localhost by default. To enable access from a
              
             </div>
             <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="workflow_inference_api.html" class="btn btn-neutral float-right" title="Workflow Inference API" accesskey="n" rel="next">Next <img src="_static/images/chevron-right-orange.svg" class="next-page"></a>
-      
-      
-        <a href="metrics_api.html" class="btn btn-neutral" title="Metrics API" accesskey="p" rel="prev"><img src="_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
-      
-    </div>
   
 
   
@@ -397,7 +544,31 @@ Both APIs are accessible only from localhost by default. To enable access from a
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">TorchServe REST API</a></li>
+<li><a class="reference internal" href="#">Getting started</a><ul>
+<li><a class="reference internal" href="#install-torchserve-and-torch-model-archiver">Install TorchServe and torch-model-archiver</a><ul>
+<li><a class="reference internal" href="#for-debian-based-systems-macos">For Debian Based Systems/ MacOS</a></li>
+<li><a class="reference internal" href="#for-windows">For Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#serve-a-model">Serve a model</a><ul>
+<li><a class="reference internal" href="#store-a-model">Store a Model</a></li>
+<li><a class="reference internal" href="#start-torchserve-to-serve-the-model">Start TorchServe to serve the model</a></li>
+<li><a class="reference internal" href="#get-predictions-from-a-model">Get predictions from a model</a><ul>
+<li><a class="reference internal" href="#using-grpc-apis-through-python-client">Using GRPC APIs through python client</a></li>
+<li><a class="reference internal" href="#using-rest-apis">Using REST APIs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stop-torchserve">Stop TorchServe</a></li>
+<li><a class="reference internal" href="#inspect-the-logs">Inspect the logs</a></li>
+<li><a class="reference internal" href="#install-torchserve-for-development">Install TorchServe for development</a><ul>
+<li><a class="reference internal" href="#id1">For Debian Based Systems/ MacOS</a></li>
+<li><a class="reference internal" href="#id2">For Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             </div>

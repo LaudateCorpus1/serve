@@ -116,8 +116,12 @@
                   <span class="dropdown-title">torchvision</span>
                   <p></p>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/elastic/">
-                  <span class="dropdown-title">TorchElastic</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torchrec">
+                  <span class="dropdown-title">TorchRec</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/data">
+                  <span class="dropdown-title">TorchData</span>
                   <p></p>
                 </a>
                 <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/serve/">
@@ -468,7 +472,7 @@ curl http://localhost:8080/predictions/resnet-18/2.0 -F <span class="s2">&quot;d
 </ul>
 <section id="id3">
 <h3>curl example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> --data @kubernetes/kserve/kf_request_json/mnist.json http://127.0.0.1:8080/v1/models/mnist:predict
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> --data @kubernetes/kserve/kf_request_json/v1/mnist.json http://127.0.0.1:8080/v1/models/mnist:predict
 </pre></div>
 </div>
 <p>The result is a json that gives you the predictions for the input json</p>
@@ -490,7 +494,7 @@ curl http://localhost:8080/predictions/resnet-18/2.0 -F <span class="s2">&quot;d
 </ul>
 <section id="id4">
 <h3>curl example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> --data @kubernetes/kserve/kf_request_json/mnist.json http://127.0.0.1:8080/v1/models/mnist:explain
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> --data @kubernetes/kserve/kf_request_json/v1/mnist.json http://127.0.0.1:8080/v1/models/mnist:explain
 </pre></div>
 </div>
 <p>The result is a json that gives you the explanations for the input json</p>

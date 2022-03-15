@@ -116,8 +116,12 @@
                   <span class="dropdown-title">torchvision</span>
                   <p></p>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/elastic/">
-                  <span class="dropdown-title">TorchElastic</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torchrec">
+                  <span class="dropdown-title">TorchRec</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/data">
+                  <span class="dropdown-title">TorchData</span>
                   <p></p>
                 </a>
                 <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/serve/">
@@ -410,6 +414,24 @@ Metrics are collected by default at:</p>
 <td>host</td>
 <td>percentage</td>
 <td>memory utilization on host</td>
+</tr>
+<tr>
+<td>GPUUtilization</td>
+<td>host,device_id</td>
+<td>percentage</td>
+<td>GPU utilization on host,device_id</td>
+</tr>
+<tr>
+<td>GPUMemoryUtilization</td>
+<td>host,device_id</td>
+<td>percentage</td>
+<td>GPU memory utilization on host,device_id</td>
+</tr>
+<tr>
+<td>GPUMemoryUsed</td>
+<td>host,device_id</td>
+<td>MB</td>
+<td>GPU memory used on host,device_id</td>
 </tr>
 <tr>
 <td>Requests2XX</td>

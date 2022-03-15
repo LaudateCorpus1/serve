@@ -6,10 +6,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ts.metrics.dimension &mdash; PyTorch/Serve master documentation</title>
+  <title>Performance Guide &mdash; PyTorch/Serve master documentation</title>
   
 
   
@@ -25,31 +26,31 @@
 
   
 
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <!-- <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> -->
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
+  <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
   <!-- Google Analytics -->
   
   <!-- End Google Analytics -->
   
 
   
-  <script src="../../../_static/js/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
   <!-- Preload the theme fonts -->
 
-<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="../../../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="../../../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
 <!-- Preload the katex fonts -->
 
@@ -206,7 +207,7 @@
 
 
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search Docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -224,43 +225,43 @@
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../index.html">1. TorchServe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../Troubleshooting.html">2. Troubleshooting Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../batch_inference_with_ts.html">3. Batch Inference with TorchServe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code_coverage.html">4. Code Coverage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">5. Advanced configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../custom_service.html">6. Custom Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../default_handlers.html">7. TorchServe default inference handlers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../logging.html">8. Logging in Torchserve</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../metrics.html">9. TorchServe Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../model_zoo.html">10. Model Zoo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../request_envelopes.html">11. Request Envelopes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../server.html">12. Running TorchServe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../snapshot.html">13. TorchServe model snapshot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../torchserve_on_win_native.html">14. TorchServe on Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../torchserve_on_wsl.html">15. TorchServe on Windows Subsystem for Linux (WSL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../use_cases.html">16. Torchserve Use Cases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../workflows.html">17. TorchServe Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">1. TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Troubleshooting.html">2. Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_inference_with_ts.html">3. Batch Inference with TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_coverage.html">4. Code Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">5. Advanced configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_service.html">6. Custom Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="default_handlers.html">7. TorchServe default inference handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">8. Logging in Torchserve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">9. TorchServe Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_zoo.html">10. Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request_envelopes.html">11. Request Envelopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">12. Running TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshot.html">13. TorchServe model snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchserve_on_win_native.html">14. TorchServe on Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchserve_on_wsl.html">15. TorchServe on Windows Subsystem for Linux (WSL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">16. Torchserve Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">17. TorchServe Workflows</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Service APIs:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../grpc_api.html">TorchServe gRPC API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../inference_api.html">Inference API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../management_api.html">Management API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../metrics_api.html">Metrics API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rest_api.html">TorchServe REST API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../workflow_inference_api.html">Workflow Inference API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../workflow_management_api.html">Management API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc_api.html">TorchServe gRPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inference_api.html">Inference API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_api.html">Management API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics_api.html">Metrics API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest_api.html">TorchServe REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_inference_api.html">Workflow Inference API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_management_api.html">Management API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer APIs:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/ts.html">ts package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/ts.torch_handler.request_envelope.html">ts.torch_handler.request_envelope package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/ts.torch_handler.html">ts.torch_handler package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/ts.metrics.html">ts.metrics package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/ts.model_service.html">ts.model_service package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/ts.protocol.html">ts.protocol package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.html">ts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.request_envelope.html">ts.torch_handler.request_envelope package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.html">ts.torch_handler package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.metrics.html">ts.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.model_service.html">ts.model_service package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.protocol.html">ts.protocol package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">serve</a></li>
 </ul>
 
             
@@ -293,7 +294,7 @@
   <ul class="pytorch-breadcrumbs">
     
       <li>
-        <a href="../../../contents.html">
+        <a href="contents.html">
           
             Docs
           
@@ -301,12 +302,14 @@
       </li>
 
         
-          <li><a href="../../index.html">Module code</a> &gt;</li>
-        
-      <li>ts.metrics.dimension</li>
+      <li>Performance Guide</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="_sources/performance_guide.md.txt" rel="nofollow"><img src="_static/images/view-page-source-icon.svg"></a>
+          
         
       </li>
     
@@ -331,45 +334,46 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <h1>Source code for ts.metrics.dimension</h1><div class="highlight"><pre>
-<span></span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Dimension class for model server metrics</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-
-<div class="viewcode-block" id="Dimension"><a class="viewcode-back" href="../../../api/ts.metrics.html#ts.metrics.dimension.Dimension">[docs]</a><span class="k">class</span> <span class="nc">Dimension</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Dimension class defining key value pair</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Constructor for Dimension class</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        name: str</span>
-<span class="sd">            NAme of dimension</span>
-<span class="sd">        value : str</span>
-<span class="sd">           Unique Value of dimension</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a string value</span>
-<span class="sd">        :return:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-
-<div class="viewcode-block" id="Dimension.to_dict"><a class="viewcode-back" href="../../../api/ts.metrics.html#ts.metrics.dimension.Dimension.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        return an dictionary</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">}</span></div></div>
+  <section id="performance-guide">
+<h1>Performance Guide<a class="headerlink" href="#performance-guide" title="Permalink to this headline">¶</a></h1>
+<p>In case you’re interested in optimizing the memory usage, latency or throughput of a PyTorch model served with TorchServe, this is the guide for you.</p>
+<section id="optimizing-pytorch">
+<h2>Optimizing PyTorch<a class="headerlink" href="#optimizing-pytorch" title="Permalink to this headline">¶</a></h2>
+<p>There are many tricks to optimize PyTorch models for production including but not limited to distillation, quantization, fusion, pruning, setting environment variables and we encourage you to benchmark and see what works best for you. An experimental tool that may make this process is easier is https://github.com/pytorch/serve/tree/master/experimental/torchprep</p>
+<p>In general it’s hard to optimize models and the easiest approach can be exporting to some runtime like ORT, TensorRT, IPEX, FasterTransformer and we have many examples for how to integrate these runtimes in https://github.com/pytorch/serve/tree/master/examples. If your favorite runtime is not supported please feel free to open a PR.</p>
+</section>
+<section id="optimizing-torchserve">
+<h2>Optimizing TorchServe<a class="headerlink" href="#optimizing-torchserve" title="Permalink to this headline">¶</a></h2>
+<p>The main settings you should vary if you’re trying to improve the performance of TorchServe from the <code class="docutils literal notranslate"><span class="pre">config.properties</span></code> are the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> and <code class="docutils literal notranslate"><span class="pre">batch_delay</span></code>. A larger batch size means a higher throughput at the cost of lower latency.</p>
+<p>The second most important settings are  number of workers and number of gpus which will have a dramatic impact on CPU and GPU performance. To configure them:</p>
+<section id="concurrency-and-number-of-workers">
+<h3>Concurrency And Number of Workers<a class="headerlink" href="#concurrency-and-number-of-workers" title="Permalink to this headline">¶</a></h3>
+<p>TorchServe exposes configurations that allow the user to configure the number of worker threads on CPU and GPUs. There is an important config property that can speed up the server depending on the workload.
+<em>Note: the following property has bigger impact under heavy workloads.</em></p>
+<p><strong>CPU</strong>: there is a config property called <code class="docutils literal notranslate"><span class="pre">workers</span></code> which sets the number of worker threads for a model. The best value to set <code class="docutils literal notranslate"><span class="pre">workers</span></code> to is to start with <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">physical</span> <span class="pre">cores</span> <span class="pre">/</span> <span class="pre">2</span></code> and increase it as much possible after setting <code class="docutils literal notranslate"><span class="pre">torch.set_num_threads(1)</span></code> in your handler.</p>
+<p><strong>GPU</strong>: there is a config property called <code class="docutils literal notranslate"><span class="pre">number_of_gpu</span></code> that tells the server to use a specific number of GPUs per model. In cases where we register multiple models with the server, this will apply to all the models registered. If this is set to a low value (ex: 0 or 1), it will result in under-utilization of GPUs. On the contrary, setting to a high value (&gt;= max GPUs available on the system) results in as many workers getting spawned per model. Clearly, this will result in unnecessary contention for GPUs and can result in sub-optimal scheduling of threads to GPU.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ValueToSet</span> <span class="o">=</span> <span class="p">(</span><span class="n">Number</span> <span class="n">of</span> <span class="n">Hardware</span> <span class="n">GPUs</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Number</span> <span class="n">of</span> <span class="n">Unique</span> <span class="n">Models</span><span class="p">)</span>
 </pre></div>
+</div>
+</section>
+</section>
+<section id="benchmarking">
+<h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">¶</a></h2>
+<p>To make comparing various model and TorchServe configurations easier to compare, we’ve added a few helper scripts that output performance data like p50, p90, p99 latency in a clean report here and mostly require you to determine some configuration either via JSON or YAML https://github.com/pytorch/serve/tree/master/benchmarks.</p>
+<p>If you’d like to run performance benchmarks locally https://github.com/pytorch/serve/tree/master/benchmarks</p>
+<p>If you’d like to run performance benchmarks using an automated suite on AWS https://github.com/pytorch/serve/tree/master/benchmarks/automated</p>
+<p>For the most part the core TorchServe team uses local benchmarks for experiments and the automated benchmarks for official releases.</p>
+</section>
+<section id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<p>TorchServe has native support for the PyTorch profiler which will help you find performance bottlenecks in your code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">ENABLE_TORCH_PROFILER</span><span class="o">=</span><span class="n">TRUE</span>
+</pre></div>
+</div>
+<p>To learn more about the PyTorch profiler https://github.com/pytorch/kineto/tree/main/tb_plugin</p>
+</section>
+</section>
+
 
              </article>
              
@@ -403,7 +407,19 @@
         <div class="pytorch-content-right" id="pytorch-content-right">
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
-              
+              <ul>
+<li><a class="reference internal" href="#">Performance Guide</a><ul>
+<li><a class="reference internal" href="#optimizing-pytorch">Optimizing PyTorch</a></li>
+<li><a class="reference internal" href="#optimizing-torchserve">Optimizing TorchServe</a><ul>
+<li><a class="reference internal" href="#concurrency-and-number-of-workers">Concurrency And Number of Workers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#benchmarking">Benchmarking</a></li>
+<li><a class="reference internal" href="#profiling">Profiling</a></li>
+</ul>
+</li>
+</ul>
+
             </div>
           </div>
         </div>
@@ -416,22 +432,22 @@
   
 
      
-       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-         <script src="../../../_static/jquery.js"></script>
-         <script src="../../../_static/underscore.js"></script>
-         <script src="../../../_static/doctools.js"></script>
+       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+         <script src="_static/jquery.js"></script>
+         <script src="_static/underscore.js"></script>
+         <script src="_static/doctools.js"></script>
          <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
          <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
-         <script src="../../../_static/katex_autorenderer.js"></script>
+         <script src="_static/katex_autorenderer.js"></script>
      
 
   
 
-  <script type="text/javascript" src="../../../_static/js/vendor/popper.min.js"></script>
-  <script type="text/javascript" src="../../../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
@@ -543,7 +559,7 @@
   <div class="cookie-banner-wrapper">
   <div class="container">
     <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
-    <img class="close-button" src="../../../_static/images/pytorch-x.svg">
+    <img class="close-button" src="_static/images/pytorch-x.svg">
   </div>
 </div>
 
@@ -658,7 +674,7 @@
 
   <!-- End Mobile Menu -->
 
-  <script type="text/javascript" src="../../../_static/js/vendor/anchor.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function() {
