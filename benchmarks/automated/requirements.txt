@@ -12,4 +12,4 @@ docker
 pandas
 matplotlib
 pyyaml
-cryptography==3.4.7
+cryptography==39.0.1
